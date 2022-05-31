@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+
+// importing components
+import Header from "./components/Header/Header";
+import InteractiveSection from "./components/InteractiveSection/InteractiveSection";
+import ListElementsContainer from "./components/ListElements/ListElementsContainer";
+import Footer from "./components/Footer/Footer";
+
+// importing styling 
+import {GlobalStyles} from "./components/globalstyling"
+import React from "react";
+
 
 function App() {
+
+  const [currentTasks, setCurrentTasks] = React.useState([
+    {
+      id: 1,
+      complite: false,
+      content: "learn React"
+    },
+    {
+      id: 2,
+      complite: false,
+      content: "learn js"
+    },
+  ])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+        <Header/>
+        <InteractiveSection />
+        <ListElementsContainer tasks = {currentTasks}/>
+        <Footer/>
+    </>
   );
 }
 
