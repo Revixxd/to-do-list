@@ -4,20 +4,15 @@ import React from "react"
 import {ListElementContainer} from "./listElementStyling"
 
 function ListElement(props){
-
-    const [currentElementComplite, setCurrentElementComplite] = React.useState(props.task.complite)
-
-    function changeTaskState(){
-        //for element state
-        setCurrentElementComplite(prev => !prev)
-        //for object propertie
-        props.task.complite = !props.task.complite
-    }
-
+    console.log(props.task.completed)
     return(
         <ListElementContainer> 
-            <input onClick={changeTaskState} type="checkbox"></input>
-            <h1 className={currentElementComplite ? "elementCrossed" : ''}>{props.task.content}</h1>
+            <input 
+            type="checkbox" 
+            onChange={() => props.changeComplete(props.task.id)} 
+            checked={props.task.completed} 
+            ></input>
+            <h1 className={props.task.completed ? 'elementCrossed':''}>{props.task.content}</h1>
         </ListElementContainer>
     )
 }

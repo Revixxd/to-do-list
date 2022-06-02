@@ -25,14 +25,14 @@ function App() {
       window.alert("input cant be empty")
     }else{
       //declaring new object 
-      const newTodo = {
+      const newTask = {
         id: new Date().getTime(),
         content: task,
         completed: false,
       }
       
       //new object is passed to existed array
-      setCurrentTasks([...currentTasks].concat(newTodo))
+      setCurrentTasks([...currentTasks].concat(newTask))
       
       //clear passed task
       setTask("")
@@ -41,14 +41,24 @@ function App() {
     
   }
 
-  const [activeCurrentTask, setCurrentActiveTask] = React.useState()
+  function changeComplete(id) {
+    let updatedList =[...currentTasks].map((element)=>{
+      if(element.id === id){
+        element.completed = !element.completed
+      }
+      return element;
+    })
+    setCurrentTasks(updatedList);
+  }
+
+  // const [activeCurrentTask, setCurrentActiveTask] = React.useState()
   
 
-  function filterArray(){
-    setCurrentActiveTask([...currentTasks].filter((element) => element.completed === true))
-  }
+  // function filterArray(){
+  //   setCurrentActiveTask([...currentTasks].filter((element) => element.completed === true))
+  // }
   
-  console.log(activeCurrentTask)
+  // console.log(activeCurrentTask)
   
 
   return (
@@ -63,8 +73,7 @@ function App() {
             setTask = {setTask}
             task= {task}
             />
-            <ListElementsContainer tasks = {currentTasks}/>
-            <button onClick={filterArray}></button>
+            <ListElementsContainer tasks = {currentTasks} changeComplete={changeComplete}/>
           </div>
         <Footer/>
       </div>

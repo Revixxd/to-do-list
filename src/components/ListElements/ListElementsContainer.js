@@ -1,8 +1,8 @@
 import ListElement from "./ListElement"
 function ListElementsContainer(props){
-    const tasks = props.tasks.map(item => {
+    const tasks = props.tasks.map(task => {
         return(
-            <ListElement key={item.id} task = {item}/>
+            <ListElement key={task.id} task={task} changeComplete={props.changeComplete}/>
         )
     })
     return(
