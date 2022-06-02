@@ -1,16 +1,19 @@
-function InteractiveSection(){
+import { InteractiveSectionStyled } from "./interactiveSectionstyling"
+
+function InteractiveSection(props){
     return(
-        <div className="interactiveSectionContainer">
-            <div className="interactiveSectionContainer--statusSelection">
+        <InteractiveSectionStyled>
+            <nav className="statusSelection">
                 <h3>All</h3>
                 <h3>Active</h3>
                 <h3>Completed</h3>
-            </div>
-            <div className="interactiveSectionContainer--addElement">
-                <input placeholder="add details"></input>
-                <button>Add</button>
-            </div>   
-        </div>
+            </nav>
+            <hr></hr>
+                <form  onSubmit={props.addTask}>
+                    <input placeholder="add task..." type ="text" value={props.task} onChange={(e) => props.setTask(e.target.value)}></input>
+                    <button type="sumbit">Add</button>
+                </form>
+        </InteractiveSectionStyled>
     )
 }
 export default InteractiveSection

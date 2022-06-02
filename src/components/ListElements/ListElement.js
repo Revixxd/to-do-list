@@ -8,7 +8,9 @@ function ListElement(props){
     const [currentElementComplite, setCurrentElementComplite] = React.useState(props.task.complite)
 
     function changeTaskState(){
+        //for element state
         setCurrentElementComplite(prev => !prev)
+        //for object propertie
         props.task.complite = !props.task.complite
     }
 
