@@ -4,7 +4,6 @@ import React from "react"
 import {ListElementContainer} from "./listElementStyling"
 
 function ListElement(props){
-    console.log(props.task.completed)
     return(
         <ListElementContainer> 
             <input 

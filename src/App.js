@@ -51,14 +51,15 @@ function App() {
     setCurrentTasks(updatedList);
   }
 
-  // const [activeCurrentTask, setCurrentActiveTask] = React.useState()
+  const [activeCurrentTask, setCurrentActiveTask] = React.useState([])
+  const [currentDoneTask, setCurrentDoneTask] = React.useState([])
   
 
-  // function filterArray(){
-  //   setCurrentActiveTask([...currentTasks].filter((element) => element.completed === true))
-  // }
-  
-  // console.log(activeCurrentTask)
+  function filterArray(){
+    setCurrentActiveTask([...currentTasks].filter((element) => element.completed !== true))
+    setCurrentDoneTask([...currentTasks].filter((element) => element.completed === true))
+    
+  }
   
 
   return (
@@ -74,6 +75,7 @@ function App() {
             task= {task}
             />
             <ListElementsContainer tasks = {currentTasks} changeComplete={changeComplete}/>
+          <button onClick={filterArray} ></button>
           </div>
         <Footer/>
       </div>
