@@ -75,7 +75,6 @@ function App() {
             task= {task}
             />
             <ListElementsContainer tasks = {currentTasks} changeComplete={changeComplete}/>
-          <button onClick={filterArray} ></button>
           </div>
         <Footer/>
       </div>
