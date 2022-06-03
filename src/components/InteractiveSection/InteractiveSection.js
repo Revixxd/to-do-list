@@ -4,9 +4,9 @@ function InteractiveSection(props){
     return(
         <InteractiveSectionStyled>
             <nav className="statusSelection">
-                <h3>All</h3>
-                <h3>Active</h3>
-                <h3>Completed</h3>
+                <h3 onClick={props.changeStatus}>All</h3>
+                <h3 onClick={props.changeStatus}>Active</h3>
+                <h3 onClick={props.changeStatus}>Completed</h3>
             </nav>
             <hr></hr>
                 <form  onSubmit={props.addTask}>
