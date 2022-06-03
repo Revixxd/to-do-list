@@ -13,7 +13,7 @@ import React from "react";
 function App() {
   
 
-  const [currentTasks, setCurrentTasks] = React.useState([])
+  const [allTasks, setallTasks] = React.useState([])
   const [task, setTask] = React.useState("")
 
 
@@ -32,7 +32,7 @@ function App() {
       }
       
       //new object is passed to existed array
-      setCurrentTasks([...currentTasks].concat(newTask))
+      setallTasks([...allTasks].concat(newTask))
       
       //clear passed task
       setTask("")
@@ -42,24 +42,16 @@ function App() {
   }
 
   function changeComplete(id) {
-    let updatedList =[...currentTasks].map((element)=>{
+    let updatedList =[...allTasks].map((element)=>{
       if(element.id === id){
         element.completed = !element.completed
       }
       return element;
     })
-    setCurrentTasks(updatedList);
+    setallTasks(updatedList);
   }
 
-  const [activeCurrentTask, setCurrentActiveTask] = React.useState([])
-  const [currentDoneTask, setCurrentDoneTask] = React.useState([])
   
-
-  function filterArray(){
-    setCurrentActiveTask([...currentTasks].filter((element) => element.completed !== true))
-    setCurrentDoneTask([...currentTasks].filter((element) => element.completed === true))
-    
-  }
   
 
   return (
@@ -69,12 +61,12 @@ function App() {
           <div className="container--mainElement">
             <Header/>
             <InteractiveSection 
-            addNewTask= {setCurrentTasks}
+            addNewTask= {setallTasks}
             addTask ={addTask}
             setTask = {setTask}
             task= {task}
             />
-            <ListElementsContainer tasks = {currentTasks} changeComplete={changeComplete}/>
+            <ListElementsContainer tasks = {allTasks} changeComplete={changeComplete}/>
           </div>
         <Footer/>
       </div>
