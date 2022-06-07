@@ -14,12 +14,10 @@ function App() {
   
 
   const [allTasks, setallTasks] = React.useState([])
-  const [activeTasks, setActiveTasks] = React.useState([])
-  const [completedTasks, setCompletedTasks] = React.useState(allTasks)
   
   const [task, setTask] = React.useState("")
 
-  const [currentList, setCurrentList] = React.useState([])
+
   function addTask(e){
     //bellow declare to now refresh after button sumbit
     e.preventDefault()
@@ -36,41 +34,12 @@ function App() {
       
       //new object is passed to existed array
       setallTasks([...allTasks].concat(newTask))
-      setActiveTasks(allTasks.filter((element) => element.completed === false))
+
       //clear passed task
       setTask("")
       
     }
     
-  }
-
-  function changeComplete(id) {
-    let updatedList =[...allTasks].map((element)=>{
-      if(element.id === id){
-        element.completed = !element.completed
-        setCompletedTasks(allTasks.filter((element) => element.completed === true))
-        setActiveTasks(allTasks.filter((element) => element.completed === false))
-      }
-      return element;
-    })
-    setallTasks(updatedList);
-  }
-
-
-  function changeStatus(parametr){
-    switch (parametr.target.textContent){
-      case "All":
-        setCurrentList(allTasks)
-        break;
-      case "Active":
-        setCurrentList(activeTasks)
-        console.log("active");
-        break;
-      case "Completed":
-        setCurrentList(completedTasks)
-        console.log("Completed");
-        break;
-    }
   }
 
   return (
@@ -84,9 +53,8 @@ function App() {
             addTask ={addTask}
             setTask = {setTask}
             task= {task}
-            changeStatus = {changeStatus}
             />
-            <ListElementsContainer tasks = {currentList} changeComplete={changeComplete} />
+            <ListElementsContainer tasks = {allTasks} />
           </div>
         <Footer/>
       </div>
