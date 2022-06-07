@@ -22,6 +22,11 @@ function App() {
     id:2,
     content: "test2",
     completed: true
+    },
+    {
+    id:3,
+    content: "test3",
+    completed: false
     }
   ])
   const [task, setTask] = React.useState("")
@@ -33,7 +38,6 @@ function App() {
 
   const [state, setState] = React.useState('all')
 
-  console.log(state)
   function changeState(currentStatus){
     switch (currentStatus){
     case 'all':
@@ -101,7 +105,10 @@ function App() {
     
   }
 
-
+  function deleteTask(id){
+    let newList = [...allTasks].filter(item => item.id !== id)
+    setallTasks(newList)
+  }
 
   return (
     <>
@@ -116,7 +123,11 @@ function App() {
             task= {task}
             changeShowedState = {changeState}
             />
-            <ListElementsContainer tasks = {currentShowedList} changeComplete = {changeComplete}/>
+            <ListElementsContainer tasks = {currentShowedList} 
+            state = {state} 
+            changeComplete = {changeComplete} 
+            deleteTask ={deleteTask}
+            />
           </div>
         <Footer/>
       </div>
