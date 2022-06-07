@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 
 // importing styling 
 import {GlobalStyles} from "./components/globalstyling"
-import React from "react";
+import React, { useEffect } from "react";
 
 
 function App() {
@@ -15,11 +15,37 @@ function App() {
 
   const [allTasks, setallTasks] = React.useState([{
     id:1,
-    content: "test",
+    content: "test1",
     completed: false
-  }])
-  
+    },
+    {
+    id:2,
+    content: "test2",
+    completed: true
+    }
+  ])
   const [task, setTask] = React.useState("")
+  
+  const activeTasks = allTasks.filter(item => item.completed === false )
+  const completedTasks = allTasks.filter(item => item.completed === true)
+  
+  const [currentShowedList, setCurrentShoweList] = React.useState(allTasks)
+  const currentStatus = "active"
+
+
+  function test(currentStatus){
+    switch (currentStatus){
+    case 'all':
+      setCurrentShoweList(allTasks)
+      break;
+    case 'active':
+      setCurrentShoweList(activeTasks)
+      break;
+    case 'completed':
+      setCurrentShoweList(completedTasks)
+      break;
+    }
+  }
 
 
   function addTask(e){
@@ -41,7 +67,7 @@ function App() {
 
       //clear passed task
       setTask("")
-      
+      console.log(allTasks)
     }
     
   }
@@ -53,7 +79,10 @@ function App() {
       return item;
     })
     setallTasks(newList)
+    
   }
+
+
 
   return (
     <>
@@ -66,8 +95,9 @@ function App() {
             addTask ={addTask}
             setTask = {setTask}
             task= {task}
+            changeShowedState = {test}
             />
-            <ListElementsContainer tasks = {allTasks} changeComplete = {changeComplete}/>
+            <ListElementsContainer tasks = {currentShowedList} changeComplete = {changeComplete}/>
           </div>
         <Footer/>
       </div>
