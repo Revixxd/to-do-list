@@ -11,7 +11,7 @@ function ListElement(props){
             checked={props.task.completed} 
             onChange={() => props.changeComplete(props.task.id)} 
             ></input>
-            <h1 className={props.task.completed ? "elementCrossed" : ""}>{props.task.content}</h1>
+            <h2 className={props.task.completed ? "elementCrossed" : ""}>{props.task.content}</h2>
         </ListElementContainer>
     )
 }
