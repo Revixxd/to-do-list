@@ -31,24 +31,25 @@ function App() {
   
   const [currentShowedList, setCurrentShoweList] = React.useState(allTasks)
 
-  let state = 'all'
-  console.log(state)
+  const [state, setState] = React.useState('all')
 
+  console.log(state)
   function changeState(currentStatus){
     switch (currentStatus){
     case 'all':
       setCurrentShoweList(allTasks)
-      state = 'all'
+      setState("all")
       break;
     case 'active':
       setCurrentShoweList(activeTasks)
-      state = 'active'
+      setState("active")
       break;
     case 'completed':
       setCurrentShoweList(completedTasks)
-      state = 'completed'
+      setState("completed")
       break;
     }
+
   }
 
   useEffect(()=>{
@@ -64,6 +65,7 @@ function App() {
         break;
       }
   },[allTasks])
+  
 
 
   function addTask(e){
