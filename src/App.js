@@ -13,7 +13,11 @@ import React from "react";
 function App() {
   
 
-  const [allTasks, setallTasks] = React.useState([])
+  const [allTasks, setallTasks] = React.useState([{
+    id:1,
+    content: "test",
+    completed: false
+  }])
   
   const [task, setTask] = React.useState("")
 
@@ -41,6 +45,15 @@ function App() {
     }
     
   }
+  function changeComplete(id){
+    let newList = [...allTasks].map(item =>{
+      if(item.id === id){
+        item.completed = !item.completed
+      }
+      return item;
+    })
+    setallTasks(newList)
+  }
 
   return (
     <>
@@ -54,7 +67,7 @@ function App() {
             setTask = {setTask}
             task= {task}
             />
-            <ListElementsContainer tasks = {allTasks} />
+            <ListElementsContainer tasks = {allTasks} changeComplete = {changeComplete}/>
           </div>
         <Footer/>
       </div>

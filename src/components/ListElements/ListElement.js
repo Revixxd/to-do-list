@@ -8,10 +8,10 @@ function ListElement(props){
         <ListElementContainer> 
             <input 
             type="checkbox" 
-            onChange={() => props.changeComplete(props.task.id)} 
             checked={props.task.completed} 
+            onChange={() => props.changeComplete(props.task.id)} 
             ></input>
-            <h1 className={props.task.completed ? 'elementCrossed':''}>{props.task.content}</h1>
+            <h1 className={props.task.completed ? "elementCrossed" : ""}>{props.task.content}</h1>
         </ListElementContainer>
     )
 }
