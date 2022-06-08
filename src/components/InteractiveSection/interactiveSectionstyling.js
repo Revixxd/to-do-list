@@ -11,16 +11,20 @@ export const InteractiveSectionStyled = styled.div`
     flex-direction: column;
     gap:20px;
 
-    .statusSelection{
-        flex-basis: 33%
-    }
+
     .statusSelection, form{
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+
+
+    }
+    .statusSelection--element{
+        width: 200px;
+        text-align: center;
+    }
+    form{
         gap: 1rem;
     }
-
     form > input {
         width: 90%;
         padding: 10px;

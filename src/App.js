@@ -15,18 +15,23 @@ function App() {
 
   const [allTasks, setallTasks] = React.useState([{
     id:1,
-    content: "test1",
-    completed: false
-    },
-    {
-    id:2,
-    content: "test2",
+    content: "Learn HTML/CSS",
     completed: true
     },
     {
-    id:3,
-    content: "test3",
-    completed: false
+      id:2,
+      content: "Learn JavaScript",
+      completed: true
+    },
+    {
+      id:3,
+      content: "Learn Git with Github",
+      completed: true
+    },
+    {
+      id:4,
+      content: "Try to understand React",
+      completed: false
     }
   ])
   const [task, setTask] = React.useState("")
