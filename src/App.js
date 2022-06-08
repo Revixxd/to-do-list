@@ -135,6 +135,7 @@ function App() {
             setTask = {setTask}
             task= {task}
             changeShowedState = {changeState}
+            state = {state} 
             />
             <ListElementsContainer tasks = {currentShowedList} 
             state = {state} 

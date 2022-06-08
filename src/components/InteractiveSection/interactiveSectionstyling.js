@@ -21,6 +21,13 @@ export const InteractiveSectionStyled = styled.div`
     .statusSelection--element{
         width: 200px;
         text-align: center;
+        cursor: pointer
+    }
+
+    .statusSelection__element--selected{
+        color:${blue};
+        transition: color 0.2s ;
+
     }
     form{
         gap: 1rem;
@@ -38,6 +45,7 @@ export const InteractiveSectionStyled = styled.div`
         padding: 0px 25px;
         border: none;
         background-color: ${blue};
-        color: ${white}
+        color: ${white};
+        cursor: pointer;
     }
 `

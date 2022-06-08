@@ -18,4 +18,12 @@ export const ListElementContainer = styled.div`
         align-items: center;
         gap: 10px;
     }
+
+    .test{
+        font-size: 20px;
+        cursor: pointer;
+    }
+    input{
+        cursor: pointer;
+    }
 `

@@ -22,7 +22,7 @@ function ListElement(props){
                 </input>
                 <h2 className={props.task.completed ? "elementCrossed" : ""}>{props.task.content}</h2>
             </div>
-            {showBin() ? <RiDeleteBin6Line onClick={()=>props.deleteTask(props.task.id)}/> : ""}
+            {showBin() ? <RiDeleteBin6Line className="test" onClick={()=>props.deleteTask(props.task.id)}/> : ""}
         </ListElementContainer>
     )
 }
