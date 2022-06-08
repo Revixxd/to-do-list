@@ -46,16 +46,20 @@ function App() {
   function changeState(currentStatus){
     switch (currentStatus){
     case 'all':
-      setCurrentShoweList(allTasks)
-      setState("all")
+      setCurrentShoweList(allTasks);
+      setState("all");
       break;
     case 'active':
-      setCurrentShoweList(activeTasks)
-      setState("active")
+      setCurrentShoweList(activeTasks);
+      setState("active");
       break;
     case 'completed':
-      setCurrentShoweList(completedTasks)
-      setState("completed")
+      setCurrentShoweList(completedTasks);
+      setState("completed");
+      break;
+    default:
+      setCurrentShoweList(allTasks);
+      setState("all");
       break;
     }
 
@@ -72,7 +76,11 @@ function App() {
       case 'completed':
         setCurrentShoweList(completedTasks)
         break;
+      default:
+        setCurrentShoweList(allTasks)
+        break;
       }
+      
   },[allTasks])
   
 
