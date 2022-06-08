@@ -81,7 +81,7 @@ function App() {
         break;
       }
       
-  },[allTasks])
+  },[allTasks])// eslint-disable-line react-hooks/exhaustive-deps
   
 
 
